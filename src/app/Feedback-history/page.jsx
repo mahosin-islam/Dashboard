@@ -5,14 +5,11 @@ import { MessageSquare, Clock, Trash2 } from 'lucide-react';
 export default function FeedbackHistory() {
   const [history, setHistory] = useState([]);
 
-  // ডাটা লোড করার ফাংশন
-  const loadHistory = () => {
-    const savedData = JSON.parse(localStorage.getItem('hintro_feedbacks') || '[]');
-    setHistory(savedData);
-  };
-
   useEffect(() => {
-    loadHistory();
+    if (typeof window === 'undefined') return;
+
+    const savedData = JSON.parse(localStorage.getItem('hintro_feedbacks') || '[]');
+    Promise.resolve().then(() => setHistory(savedData));
   }, []);
 
   // ডিলিট করার ফাংশন
@@ -46,7 +43,7 @@ export default function FeedbackHistory() {
             <div key={item.id} className="group bg-white p-5 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all">
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1">
-                  <p className="text-gray-800 leading-relaxed mb-3 italic">"{item.message}"</p>
+                  <p className="text-gray-800 leading-relaxed mb-3 italic">&quot;{item.message}&quot;</p>
                   <div className="flex items-center gap-2 text-xs text-gray-400">
                     <Clock size={14} />
                     <span>Submitted on: {item.date}</span>

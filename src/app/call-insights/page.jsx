@@ -8,13 +8,7 @@ const CallInsights = () => {
   const searchParams = useSearchParams();
   
   // হাইড্রেশন এরর দূর করার জন্য স্টেট (Math.random-এর জন্য)
-  const [sentimentScore, setSentimentScore] = useState(80);
-
-  useEffect(() => {
-    // পেজ লোড হওয়ার পর ক্লায়েন্ট সাইডে র‍্যান্ডম পার্সেন্টেজ সেট হবে
-    const randomScore = Math.floor(Math.random() * (95 - 70) + 70);
-    setSentimentScore(randomScore);
-  }, []);
+  const [sentimentScore] = useState(() => Math.floor(Math.random() * (95 - 70) + 70));
 
   // ইউআরএল থেকে ডেটা নেওয়া
   const callId = searchParams.get('id') || 'N/A';
