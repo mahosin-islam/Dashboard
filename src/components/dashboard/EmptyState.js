@@ -9,7 +9,7 @@ const EmptyState = () => {
       </div>
       <h3 className="text-lg font-semibold text-gray-900">No calls found</h3>
       <p className="text-gray-500 text-sm mt-1">
-        It looks like you haven't made any calls yet.
+        It looks like you haven t made any calls yet
       </p>
       <button className="mt-6 bg-black text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
         Start your first call

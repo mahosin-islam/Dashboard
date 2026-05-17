@@ -53,7 +53,7 @@ const CallInsights = () => {
             <p className="text-gray-600 leading-relaxed">
               This is a dynamic analysis for <strong>{callName}</strong>. 
               The conversation lasted {formatTime(durationRaw)}. AI has analyzed the transcript 
-              and generated the  following insights based on the user's interaction.
+              and generated the  following insights based on the users interaction.
             </p>
           </div>
 
