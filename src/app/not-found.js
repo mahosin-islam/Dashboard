@@ -22,7 +22,7 @@ export default function NotFound() {
           <h1 className="text-6xl font-black text-gray-900">404</h1>
           <h2 className="text-2xl font-bold text-gray-800">Page Not Found</h2>
           <p className="text-gray-500">
-            Oops! The page you are looking for doesn't exist or has been moved to another URL.
+            Oops! The page you are looking for doesnt exist or has been moved to another URL.
           </p>
         </div>
 
