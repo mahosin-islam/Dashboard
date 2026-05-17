@@ -1,11 +1,22 @@
 'use client';
 import { useRouter, useSearchParams } from 'next/navigation'; 
-import { ArrowLeft, MessageSquare, Zap, } from 'lucide-react';
+import { ArrowLeft, MessageSquare, Zap } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const CallInsights = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  // ইউআরএল থেকে ডেটা নেওয়া
+  
+  // হাইড্রেশন এরর দূর করার জন্য স্টেট (Math.random-এর জন্য)
+  const [sentimentScore, setSentimentScore] = useState(80);
+
+  useEffect(() => {
+    // পেজ লোড হওয়ার পর ক্লায়েন্ট সাইডে র‍্যান্ডম পার্সেন্টেজ সেট হবে
+    const randomScore = Math.floor(Math.random() * (95 - 70) + 70);
+    setSentimentScore(randomScore);
+  }, []);
+
+  // ইউআরএল থেকে ডেটা নেওয়া
   const callId = searchParams.get('id') || 'N/A';
   const callName = searchParams.get('name') || 'Inbound Call';
   const durationRaw = searchParams.get('duration');
@@ -28,7 +39,7 @@ const CallInsights = () => {
         <span className="font-medium">Back to Recent Calls</span>
       </button>
 
-      {/* Header Section - এখন এটি ডাইনামিক */}
+      {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">{callName} Analysis</h1>
@@ -49,11 +60,12 @@ const CallInsights = () => {
               <Zap size={20} className="text-amber-500" />
               <h3 className="font-bold text-gray-900">AI Summary</h3>
             </div>
-            {/* এখানে ডাটা অনুযায়ী ছোট লজিক দিতে পারো */}
+            
+            {/* কোটেশন এরর দূর করতে পুরো প্যারাগ্রাফের টেক্সট {' '} দিয়ে সেফ করা হয়েছে */}
             <p className="text-gray-600 leading-relaxed">
-              This is a dynamic analysis for <strong>{callName}</strong>. 
-              The conversation lasted {formatTime(durationRaw)}. AI has analyzed the transcript 
-              and generated the  following insights based on the users interaction.
+              {'This is a dynamic analysis for '} <strong>{callName}</strong>{'. '}
+              {'The conversation lasted '} {formatTime(durationRaw)}{'. AI has analyzed the transcript '}
+              {"and generated the following insights based on the user's interaction."}
             </p>
           </div>
 
@@ -73,7 +85,7 @@ const CallInsights = () => {
           </div>
         </div>
 
-        {/* Right Side - Sentiment (Randomize for feel) */}
+        {/* Right Side - Sentiment */}
         <div className="space-y-6">
           <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="font-bold text-gray-900 mb-4">Call Sentiment</h3>
@@ -81,7 +93,7 @@ const CallInsights = () => {
               <div className="flex justify-between items-end">
                 <span className="text-sm font-medium text-gray-600">Positive</span>
                 <span className="text-xl font-bold text-green-600">
-                  {Math.floor(Math.random() * (95 - 70) + 70)}% 
+                  {sentimentScore}%
                 </span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">

@@ -17,12 +17,15 @@ export default function NotFound() {
             </div>
           </div>
         </div>
+        
         {/* টেক্সট কন্টেন্ট */}
         <div className="space-y-2">
           <h1 className="text-6xl font-black text-gray-900">404</h1>
           <h2 className="text-2xl font-bold text-gray-800">Page Not Found</h2>
+          
+          {/* কোটেশন এরর দূর করতে পুরো প্যারাগ্রাফের টেক্সট {" "} দিয়ে সেফ করা হয়েছে */}
           <p className="text-gray-500">
-            Oops! The page you are looking for doesnt exist or has been moved to another URL.
+            {"Oops! The page you are looking for doesn't exist or has been moved to another URL."}
           </p>
         </div>
 
@@ -37,9 +40,9 @@ export default function NotFound() {
           </Link>
         </div>
 
-        {/* ফুটনোট */}
+        {/* ফুটনোট - এখানেও টেক্সট সেফ করা হয়েছে */}
         <p className="text-xs text-gray-400 pt-8">
-          If you think this is a mistake, please contact support.
+          {"If you think this is a mistake, please contact support."}
         </p>
       </div>
     </div>
