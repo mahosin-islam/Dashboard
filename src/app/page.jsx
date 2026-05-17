@@ -32,15 +32,15 @@ export default function DashboardPage() {
   }, [userId]);
 
   return (
-    <div className="space-y-8 p-4 lg:p-0">
+    <div className="space-y-8 p-4 lg:p-0 bg-primary-DEFAULT">
       
       {/* ১. Welcome Section */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-brand-black">
           Hi, {userId === 'u1' ? 'New User' : 'Mahosin'} 👋 Welcome to Hintro
         </h1>
-        <p className="text-gray-500 mt-1">Ready to make your next call smarter?</p>
-        <button className="mt-4 bg-black text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
+        <p className="text-brand-text-muted mt-1">Ready to make your next call smarter?</p>
+        <button className="mt-4 bg-brand-black text-surface px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
           Start Call
         </button>
       </div>
@@ -54,8 +54,8 @@ export default function DashboardPage() {
         
         {loading ? (
           /* লোডিং স্টেট */
-          <div className="bg-white p-10 border border-gray-100 rounded-2xl text-center shadow-sm">
-            <p className="text-gray-500 animate-pulse">Loading calls...</p>
+          <div className="bg-surface p-10 border border-gray-100 rounded-2xl text-center shadow-sm">
+            <p className="text-brand-text-muted animate-pulse">Loading calls...</p>
           </div>
         ) : calls.length > 0 ? (
           /* u2 বা ডাটা থাকলে: কল লিস্ট টেবিল */

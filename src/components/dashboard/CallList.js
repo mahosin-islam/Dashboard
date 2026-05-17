@@ -25,17 +25,17 @@ const CallList = ({ calls }) => {
 
 
     return (
-        <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+        <div className="bg-surface border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
             {/* Desktop Table View */}
             <div className="hidden md:block overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="bg-gray-50 border-b border-gray-100">
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Call Name</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Duration</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
-                            <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider text-right">Action</th>
+                        <tr className="bg-surface border-b border-gray-100">
+                            <th className="px-6 py-4 text-xs font-semibold text-brand-text-muted uppercase tracking-wider">Call Name</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-brand-text-muted uppercase tracking-wider">Date</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-brand-text-muted uppercase tracking-wider">Duration</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-brand-text-muted uppercase tracking-wider">Status</th>
+                            <th className="px-6 py-4 text-xs font-semibold text-brand-text-muted uppercase tracking-wider text-right">Action</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
@@ -43,21 +43,21 @@ const CallList = ({ calls }) => {
                             <tr key={index} className="hover:bg-gray-50 transition-colors group">
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+                                        <div className="p-2 bg-surface text-primary rounded-lg">
                                             <PhoneIncoming size={18} />
                                         </div>
                                         <span className="font-medium text-gray-900">{call.callName || 'Inbound Call'}</span>
                                     </div>
                                 </td>
-                                <td className="px-6 py-4 text-sm text-gray-600">
+                                <td className="px-6 py-4 text-sm text-brand-text-muted">
                                     <div className="flex items-center gap-2">
-                                        <Calendar size={14} className="text-gray-400" />
+                                        <Calendar size={14} className="text-brand-text-muted" />
                                         {formatDate(call.createdAt)}
                                     </div>
                                 </td>
-                                <td className="px-6 py-4 text-sm text-gray-600">
+                                <td className="px-6 py-4 text-sm text-brand-text-muted0">
                                     <div className="flex items-center gap-2">
-                                        <Clock size={14} className="text-gray-400" />
+                                        <Clock size={14} className="text-brand-text-muted" />
                                         {formatDuration(call.total_duration_seconds)}
                                     </div>
                                 </td>
@@ -69,7 +69,7 @@ const CallList = ({ calls }) => {
                                 <td className="px-6 py-4 text-right">
                                     {/* Action Button - Link added here */}
                                     <Link href="/call-insights" status={call}>
-                                        <button className="text-gray-400 group-hover:text-black transition-all p-2 hover:bg-gray-100 rounded-full">
+                                        <button className="text-brand-text-muted group-hover:text-brand-text-black transition-all p-2 hover:bg-gray-100 rounded-full">
                                             <ArrowRight size={20}  />
                                              
                                         </button>
@@ -87,7 +87,7 @@ const CallList = ({ calls }) => {
                     <div key={index} className="p-4 active:bg-gray-50">
                         <div className="flex justify-between items-start mb-3">
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+                                <div className="p-2 bg-indigo-50 text-primary rounded-lg">
                                     <PhoneIncoming size={18} />
                                 </div>
                                 <div>
@@ -99,14 +99,14 @@ const CallList = ({ calls }) => {
                                 Completed
                             </span>
                         </div>
-                        <div className="flex items-center justify-between text-sm text-gray-600">
+                        <div className="flex items-center justify-between text-sm text-brand-text-muted">
                             <div className="flex items-center gap-1">
                                 <Clock size={14} />
                                 {formatDuration(call.duration)}
                             </div>
                             {/* Mobile Details Link added here */}
                             <Link href={`/call-insights?id=${call.id || index}&name=${call.callName || 'Inbound Call'}&duration=${call.duration}`}>
-                                <button className="text-gray-400 group-hover:text-black transition-all p-2 hover:bg-gray-100 rounded-full">
+                                <button className="text-brand-text-muted group-hover:text-brand-black transition-all p-2 hover:bg-gray-100 rounded-full">
                                     <ArrowRight size={20} />
                                 </button>
                             </Link>
@@ -114,6 +114,7 @@ const CallList = ({ calls }) => {
                     </div>
                 ))}
             </div>
+          
         </div>
     );
 };

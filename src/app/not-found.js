@@ -33,7 +33,7 @@ export default function NotFound() {
         <div className="pt-4">
           <Link 
             href="/"
-            className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-indigo-200 active:scale-95"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary text-surface px-8 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-indigo-200 active:scale-95"
           >
             <Home size={20} />
             Back to Dashboard
@@ -41,7 +41,7 @@ export default function NotFound() {
         </div>
 
         {/* ফুটনোট - এখানেও টেক্সট সেফ করা হয়েছে */}
-        <p className="text-xs text-gray-400 pt-8">
+        <p className="text-xs text-brand-text-muted pt-8">
           {"If you think this is a mistake, please contact support."}
         </p>
       </div>

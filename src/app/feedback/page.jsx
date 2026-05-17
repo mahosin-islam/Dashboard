@@ -48,7 +48,7 @@ export default function FeedbackPage() {
           className="w-full p-4 border border-gray-200 rounded-xl mb-4 h-32 focus:outline-none focus:ring-1 focus:ring-black text-gray-800"
           placeholder="How can we improve Hintro?"
         />
-        <button type="submit" className="cursor-pointer bg-black text-white px-8 py-3 rounded-xl font-bold hover:opacity-90 transition-all">
+        <button type="submit" className="cursor-pointer bg-primary text-white px-8 py-3 rounded-xl font-bold hover:opacity-90 transition-all">
           Submit Feedback
         </button>
       </form>

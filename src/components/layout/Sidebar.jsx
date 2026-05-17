@@ -29,23 +29,23 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* মোবাইলে সাইডবার ওপেন থাকলে বাইরে ক্লিক করলে বন্ধ হওয়ার জন্য Overlay */}
+      {/* মোবাইলে সাইডবার ওপেন থাকলে বাইরে ক্লিক করলে বন্ধ হওয়ার জন্য Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity"
+          className="fixed inset-0 bg-brand-black/50 z-40 lg:hidden transition-opacity"
           onClick={closeSidebar}
         />
       )}
 
       <aside className={`
-        fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col h-screen transition-transform duration-300 ease-in-out
+        fixed inset-y-0 left-0 z-50 w-64 bg-surface border-r border-surface-border flex flex-col h-screen transition-transform duration-300 ease-in-out
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
         lg:translate-x-0 lg:static lg:block
       `}>
         {/* মোবাইলে বন্ধ করার বাটন (X) */}
         <div className="flex items-center justify-between p-6">
-          <h1 className="text-xl font-bold tracking-tight">HINTRO</h1>
-          <button onClick={closeSidebar} className="lg:hidden text-gray-500">
+          <h1 className="text-xl font-bold tracking-tight text-brand-text-main">HINTRO</h1>
+          <button onClick={closeSidebar} className="lg:hidden text-brand-text-muted">
             <X size={24} />
           </button>
         </div>
@@ -57,8 +57,8 @@ const Sidebar = () => {
               href={item.path}
               onClick={closeSidebar} // ক্লিক করলে মোবাইলে সাইডবার বন্ধ হবে
               className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${pathname === item.path
-                  ? 'bg-indigo-50 text-indigo-600'
-                  : 'text-gray-600 hover:bg-gray-50'
+                  ? 'bg-primary-light text-primary'
+                  : 'text-brand-text-muted hover:bg-surface-alt'
                 }`}
             >
               {item.icon}
@@ -67,15 +67,15 @@ const Sidebar = () => {
           ))}
         </nav>
 
-        <div className="px-4 mt-10 py-4 border-t border-gray-100 space-y-1">
+        <div className="px-4 mt-10 py-4 border-t border-surface-border space-y-1">
           {footerItems.map((item) => (
             <Link
               key={item.path}
               href={item.path}
               onClick={closeSidebar}
               className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${pathname === item.path
-                  ? 'bg-indigo-50 text-indigo-600'
-                  : 'text-gray-600 hover:bg-gray-50'
+                  ? 'bg-primary-light text-primary'
+                  : 'text-brand-text-muted hover:bg-surface-alt'
                 }`}
             >
               {item.icon}
@@ -84,9 +84,9 @@ const Sidebar = () => {
           ))}
         </div>
 
-        <div className="p-4 mx-4 mb-6 bg-gray-50 rounded-xl border border-gray-100">
-          <p className="text-xs text-gray-500 mb-2">Need more minutes?</p>
-          <button className="w-full py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-semibold rounded-lg">
+        <div className="p-4 mx-4 mb-6 bg-surface-alt rounded-hintro border border-surface-border">
+          <p className="text-xs text-brand-text-muted mb-2">Need more minutes?</p>
+          <button className="w-full py-2 bg-primary-light hover:bg-primary text-primary hover:text-white text-xs font-semibold rounded-lg transition-colors">
             Upgrade
           </button>
         </div>
